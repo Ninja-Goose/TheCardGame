@@ -28,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button signUpButton;
     private TextView signUpText;
     private Button logInButton;
+    private EditText userEmailEdit;
     private EditText userNameEdit;
     private EditText passwordEdit;
 
@@ -46,7 +47,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         logInButton = findViewById(R.id.login_button);
+        userNameEdit = findViewById(R.id.enter_user_name);
         passwordEdit = findViewById(R.id.enter_password);
+        userEmailEdit = findViewById(R.id.enter_email);
 
         Backendless.initApp( this, getString(R.string.be_app_id), getString(R.string.be_android_api_key));
 
@@ -55,10 +58,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (signUpButton.getVisibility() == View.GONE) {
+                    userEmailEdit.setVisibility(View.VISIBLE);
                     signUpButton.setVisibility(View.VISIBLE);
                     logInButton.setVisibility(View.GONE);
                     signUpText.setText(R.string.sign_up_cancel);
                 } else {
+                    userEmailEdit.setVisibility(View.GONE);
                     signUpButton.setVisibility(View.GONE);
                     logInButton.setVisibility(View.VISIBLE);
                     signUpText.setText(R.string.sign_up_text);
@@ -72,16 +77,21 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String userName = userNameEdit.getText().toString();
                 String password = passwordEdit.getText().toString();
+                String userEmail = userEmailEdit.getText().toString();
 
                 userName = userName.trim();
                 password = password.trim();
+                userEmail = userEmail.trim();
 
                 if(password.length() < 8) {
                     warnUser(getString(R.string.invalid_password_error), getString(R.string.registration_error_title));
+                } else if(!userEmail.contains("@") || !userEmail.contains(".")) {
+                    warnUser(getString(R.string.empty_field_signup_error), getString(R.string.registration_error_title));
                 }
-                else if (!userName.isEmpty() &&!password.isEmpty() && !userName.isEmpty()) {
+                else if (!userName.isEmpty() &&!password.isEmpty() && !userEmail.isEmpty()) {
                     BackendlessUser user = new BackendlessUser();
                     user.setPassword(password);
+                    user.setEmail(userEmail);
                     user.setProperty("name", userName);
 
                     Backendless.UserService.register(user,
@@ -105,7 +115,7 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             } );
                 } else {
-                    warnUser(getString(R.string.empty_field_signup_error), getString(R.string.authentication_error_title));
+                    warnUser(getString(R.string.empty_field_signup_error), getString(R.string.registration_error_title));
                 }
             }
         });
@@ -113,14 +123,14 @@ public class LoginActivity extends AppCompatActivity {
         logInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String userEmail = userNameEdit.getText().toString();
+                String userName = userNameEdit.getText().toString();
                 String password = passwordEdit.getText().toString();
 
-                userEmail = userEmail.trim();
+                userName = userName.trim();
                 password = password.trim();
 
-                if (!userEmail.isEmpty() &&!password.isEmpty()) {
-                    Backendless.UserService.login(userEmail, password, new AsyncCallback<BackendlessUser>() {
+                if (!userName.isEmpty() &&!password.isEmpty()) {
+                    Backendless.UserService.login(userName, password, new AsyncCallback<BackendlessUser>() {
                         @Override
                         public void handleResponse(BackendlessUser response) {
                             final ProgressDialog pDialog = ProgressDialog.show(LoginActivity.this,
@@ -128,8 +138,8 @@ public class LoginActivity extends AppCompatActivity {
                                     getString(R.string.log_in_wait_message),
                                     true);
                             pDialog.dismiss();
-                            //Intent intent = new Intent(LoginActivity.this, TripListActivity.class);
-                            //startActivity(intent);
+                            Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                            startActivity(intent);
                         }
 
                         @Override
