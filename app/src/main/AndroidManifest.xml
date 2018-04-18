@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MenuActivity"
+            android:name=".MainMenuActivity"
             android:label="@string/menu_title_text"
             />
     </application>

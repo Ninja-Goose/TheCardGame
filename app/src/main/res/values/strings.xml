@@ -20,4 +20,6 @@
     <string name="email_hint">Email</string>
 
     <string name="menu_title_text">The Card Game</string>
+    <string name="menu_image_description">Image of cards</string>
+
 </resources>
