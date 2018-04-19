@@ -22,7 +22,7 @@
         android:layout_gravity="center_horizontal"
 
         android:contentDescription="@string/menu_image_description"
-        app:srcCompat="@drawable/Card10C" />
+        />
 
     <fragment
         android:id="@+id/main_menu_fragment_display"
