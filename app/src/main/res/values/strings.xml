@@ -15,8 +15,8 @@
     <string name="invalid_user_name_error">This user name already exists, please choose another.</string>
     <string name="invalid_password_error">Your password is too weak!</string>
     <string name="wait_message">Please wait!</string>
-    <string name="create_account_wait_message">Creating your account now...</string>
-    <string name="log_in_wait_message">Logging you in...</string>
+    <string name="create_account_wait_message">Creating your account now&#8230;</string>
+    <string name="log_in_wait_message">Logging you in&#8230;</string>
     <string name="email_hint">Email</string>
 
     <string name="menu_title_text">The Card Game</string>
