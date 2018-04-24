@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainMenuFragment">
+
+    <TextView
+        android:id="@+id/play_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/play_text"/>
+
+    <TextView
+        android:id="@+id/settings_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/settings_text"/>
+
+    <TextView
+        android:id="@+id/log_out_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/log_out_text"/>
+
+</LinearLayout>

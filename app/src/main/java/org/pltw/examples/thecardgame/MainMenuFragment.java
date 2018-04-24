@@ -1,0 +1,80 @@
+package org.pltw.examples.thecardgame;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.backendless.Backendless;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
+
+public class MainMenuFragment extends Fragment {
+
+    private final String TAG = this.getClass().getName();
+
+    private TextView playText;
+    private TextView settingsText;
+    private TextView logOutText;
+
+    public MainMenuFragment() {
+        // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+
+        View v = inflater.inflate(R.layout.fragment_main_menu, container, false);
+
+        playText = v.findViewById(R.id.play_text);
+        settingsText = v.findViewById(R.id.settings_text);
+        logOutText = v.findViewById(R.id.log_out_text);
+
+        playText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //start play fragment
+            }
+        });
+
+        settingsText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //start settings fragment
+            }
+        });
+
+        logOutText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Backendless.UserService.logout(new AsyncCallback<Void>() {
+                    @Override
+                    public void handleResponse(Void v) {
+                        Log.i(TAG, "Successful logout");
+                    }
+                    @Override
+                    public void handleFault(BackendlessFault backendlessFault) {
+                        Log.i(TAG, "Server reported an error on logout:" + backendlessFault.getMessage());
+                    }
+                });
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        return v;
+    }
+
+
+}
