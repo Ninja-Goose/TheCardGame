@@ -138,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
                                     getString(R.string.log_in_wait_message),
                                     true);
                             pDialog.dismiss();
-                            Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, MainMenuActivity.class);
                             startActivity(intent);
                         }
 
