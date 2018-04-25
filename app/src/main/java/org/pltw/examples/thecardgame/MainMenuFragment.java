@@ -34,7 +34,7 @@ public class MainMenuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
+        Log.i(TAG, "Main Menu Fragment onCreateView() called");
         View v = inflater.inflate(R.layout.fragment_main_menu, container, false);
 
         playText = v.findViewById(R.id.play_text);

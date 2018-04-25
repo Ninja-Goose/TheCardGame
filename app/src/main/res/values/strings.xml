@@ -25,6 +25,12 @@
     <string name="settings_text">Settings</string>
     <string name="log_out_text">Log out</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="music_volume_text">Music Volume</string>
+    <string name="game_volume_text">Game Volume</string>
+    <string name="back_button_text">Back</string>
+
+    <string name="play_title_text">Select an opponent to play</string>
+    <string name="two_on_one_device_text">Two people on one device</string>
+    <string name="against_a_bot_text">Against a bot</string>
+    <string name="internet_text">On the internet</string>
 </resources>
