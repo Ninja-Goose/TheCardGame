@@ -41,5 +41,10 @@
     <string name="user_far_right_red_card">user far right red card</string>
     <string name="user_mid_right_red_card">user mid right red card</string>
     <string name="user_center_red_card">user center red card</string>
+    <string name="user_information">user information</string>
+    <string name="opponent_information">opponent information</string>
+    <string name="card_deck">card deck</string>
+    <string name="user_data">Points: 17\nHealth: 42</string>
+    <string name="opponent_data">Points: 13\nHealth: 47</string>
 
 </resources>

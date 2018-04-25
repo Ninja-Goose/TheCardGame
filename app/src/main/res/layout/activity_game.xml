@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/Background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GameActivity">
@@ -204,7 +205,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.115" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelineUserArea"
@@ -267,5 +268,77 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline60percent"
         app:layout_constraintStart_toStartOf="@+id/guideline40percent"
         app:srcCompat="@drawable/card_10h" />
+
+    <ImageView
+        android:id="@+id/cardDeck1ImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="12dp"
+        android:contentDescription="@string/card_deck"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline20percent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userFarLeftRedImageView"
+        app:srcCompat="@drawable/card_back" />
+
+    <ImageView
+        android:id="@+id/cardDeck2ImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/card_deck"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline20percent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userFarLeftRedImageView"
+        app:srcCompat="@drawable/card_back" />
+
+    <ImageView
+        android:id="@+id/cardDeck3ImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="4dp"
+        android:contentDescription="@string/card_deck"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline20percent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userFarLeftRedImageView"
+        app:srcCompat="@drawable/card_back" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/opponent_information"
+        android:text="@string/opponent_data"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineOpponentArea"
+        app:layout_constraintEnd_toStartOf="@+id/guideline40percent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/user_information"
+        android:text="@string/user_data"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline80percent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineUserArea" />
+
+    <HorizontalScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline80percent"
+        app:layout_constraintStart_toStartOf="@+id/guideline20percent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineUserArea">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical" />
+    </HorizontalScrollView>
 
 </android.support.constraint.ConstraintLayout>
