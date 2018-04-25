@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/Background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameActivity">
+
+    <ImageView
+        android:id="@+id/opponentFarRightBlackImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:contentDescription="@string/opponent_far_right_black_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline80percent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineOpponentArea"
+        app:srcCompat="@drawable/card_10s" />
+
+    <ImageView
+        android:id="@+id/opponentMidRightBlackImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:contentDescription="@string/opponent_mid_right_black_card"
+        app:layout_constraintEnd_toStartOf="@+id/guideline80percent"
+        app:layout_constraintStart_toStartOf="@+id/guideline60percent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineOpponentArea"
+        app:srcCompat="@drawable/card_10s" />
+
+    <ImageView
+        android:id="@+id/opponentFarLeftBlackImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:contentDescription="@string/opponent_far_left_black_card"
+        app:layout_constraintEnd_toStartOf="@+id/guideline20percent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineOpponentArea"
+        app:srcCompat="@drawable/card_10s" />
+
+    <ImageView
+        android:id="@+id/opponentMidLeftBlackImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:contentDescription="@string/opponent_mid_left_black_card"
+        app:layout_constraintEnd_toStartOf="@+id/guideline40percent"
+        app:layout_constraintStart_toStartOf="@+id/guideline20percent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineOpponentArea"
+        app:srcCompat="@drawable/card_10s" />
+
+    <ImageView
+        android:id="@+id/opponentCenterBlackImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:contentDescription="@string/opponent_center_black_card"
+        app:layout_constraintEnd_toStartOf="@+id/guideline60percent"
+        app:layout_constraintStart_toStartOf="@+id/guideline40percent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineOpponentArea"
+        app:srcCompat="@drawable/card_10s" />
+
+    <ImageView
+        android:id="@+id/userFarRightBlackImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:contentDescription="@string/user_far_right_black_card"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineUserArea"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline80percent"
+        app:srcCompat="@drawable/card_10c" />
+
+    <ImageView
+        android:id="@+id/userMidRightBlackImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:contentDescription="@string/user_mid_right_black_card"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineUserArea"
+        app:layout_constraintEnd_toStartOf="@+id/guideline80percent"
+        app:layout_constraintStart_toStartOf="@+id/guideline60percent"
+        app:srcCompat="@drawable/card_10c" />
+
+    <ImageView
+        android:id="@+id/userFarLeftBlackImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:contentDescription="@string/user_far_left_black_card"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineUserArea"
+        app:layout_constraintEnd_toStartOf="@+id/guideline20percent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/card_10c" />
+
+    <ImageView
+        android:id="@+id/userMidLeftBlackImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:contentDescription="@string/user_mid_left_black_card"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineUserArea"
+        app:layout_constraintEnd_toStartOf="@+id/guideline40percent"
+        app:layout_constraintStart_toStartOf="@+id/guideline20percent"
+        app:srcCompat="@drawable/card_10c" />
+
+    <ImageView
+        android:id="@+id/userCenterBlackImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:contentDescription="@string/user_center_black_card"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineUserArea"
+        app:layout_constraintEnd_toStartOf="@+id/guideline60percent"
+        app:layout_constraintStart_toStartOf="@+id/guideline40percent"
+        app:srcCompat="@drawable/card_10c" />
+
+    <ImageView
+        android:id="@+id/opponentFarRightRedImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/opponent_far_right_red_card"
+        android:rotation="90"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline80percent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineOpponentArea"
+        app:srcCompat="@drawable/card_10d" />
+
+    <ImageView
+        android:id="@+id/opponentMidRightRedImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/opponent_mid_right_red_card"
+        android:rotation="90"
+        app:layout_constraintEnd_toStartOf="@+id/guideline80percent"
+        app:layout_constraintStart_toStartOf="@+id/guideline60percent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineOpponentArea"
+        app:srcCompat="@drawable/card_10d" />
+
+    <ImageView
+        android:id="@+id/opponentFarLeftRedImageView"
+        android:layout_width="60dp"
+        android:layout_height="95dp"
+        android:contentDescription="@string/opponent_far_left_red_card"
+        android:rotation="90"
+        app:layout_constraintEnd_toStartOf="@+id/guideline20percent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineOpponentArea"
+        app:srcCompat="@drawable/card_10d" />
+
+    <ImageView
+        android:id="@+id/opponentMidLeftRedImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/opponent_mid_left_red_card"
+        android:rotation="90"
+        app:layout_constraintEnd_toStartOf="@+id/guideline40percent"
+        app:layout_constraintStart_toStartOf="@+id/guideline20percent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineOpponentArea"
+        app:srcCompat="@drawable/card_10d" />
+
+    <ImageView
+        android:id="@+id/opponentCenterRedImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/opponent_center_red_card"
+        android:rotation="90"
+        app:layout_constraintEnd_toStartOf="@+id/guideline60percent"
+        app:layout_constraintStart_toStartOf="@+id/guideline40percent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineOpponentArea"
+        app:srcCompat="@drawable/card_10d" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline20percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline80percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline60percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline40percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineOpponentArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.115" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineUserArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <ImageView
+        android:id="@+id/userFarLeftRedImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/user_far_left_red_card"
+        android:rotation="90"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineUserArea"
+        app:layout_constraintEnd_toStartOf="@+id/guideline20percent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/card_10h" />
+
+    <ImageView
+        android:id="@+id/userMidLeftRedImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/user_mid_left_red_card"
+        android:rotation="90"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineUserArea"
+        app:layout_constraintEnd_toStartOf="@+id/guideline40percent"
+        app:layout_constraintStart_toStartOf="@+id/guideline20percent"
+        app:srcCompat="@drawable/card_10h" />
+
+    <ImageView
+        android:id="@+id/userFarRightRedImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/user_far_right_red_card"
+        android:rotation="90"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineUserArea"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline80percent"
+        app:srcCompat="@drawable/card_10h" />
+
+    <ImageView
+        android:id="@+id/userMidRightRedImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/user_mid_right_red_card"
+        android:rotation="90"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineUserArea"
+        app:layout_constraintEnd_toStartOf="@+id/guideline80percent"
+        app:layout_constraintStart_toStartOf="@+id/guideline60percent"
+        app:srcCompat="@drawable/card_10h" />
+
+    <ImageView
+        android:id="@+id/userCenterRedImageView"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/user_center_red_card"
+        android:rotation="90"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineUserArea"
+        app:layout_constraintEnd_toStartOf="@+id/guideline60percent"
+        app:layout_constraintStart_toStartOf="@+id/guideline40percent"
+        app:srcCompat="@drawable/card_10h" />
+
+    <ImageView
+        android:id="@+id/cardDeck1ImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="12dp"
+        android:contentDescription="@string/card_deck"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline20percent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userFarLeftRedImageView"
+        app:srcCompat="@drawable/card_back" />
+
+    <ImageView
+        android:id="@+id/cardDeck2ImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/card_deck"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline20percent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userFarLeftRedImageView"
+        app:srcCompat="@drawable/card_back" />
+
+    <ImageView
+        android:id="@+id/cardDeck3ImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="4dp"
+        android:contentDescription="@string/card_deck"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline20percent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userFarLeftRedImageView"
+        app:srcCompat="@drawable/card_back" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/opponent_information"
+        android:text="@string/opponent_data"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineOpponentArea"
+        app:layout_constraintEnd_toStartOf="@+id/guideline40percent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/user_information"
+        android:text="@string/user_data"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline80percent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineUserArea" />
+
+    <HorizontalScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline80percent"
+        app:layout_constraintStart_toStartOf="@+id/guideline20percent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineUserArea">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical" />
+    </HorizontalScrollView>
+
+</android.support.constraint.ConstraintLayout>
