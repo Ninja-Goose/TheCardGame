@@ -3,6 +3,7 @@ package org.pltw.examples.thecardgame;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,8 @@ import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 
 public class MainMenuFragment extends Fragment {
+
+
 
     private final String TAG = this.getClass().getName();
 
@@ -31,7 +34,7 @@ public class MainMenuFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         Log.i(TAG, "Main Menu Fragment onCreateView() called");
@@ -44,6 +47,14 @@ public class MainMenuFragment extends Fragment {
         playText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.i(TAG, "Play button pressed, starting fragment");
+                FragmentManager manager = getFragmentManager();
+                PlayScreenFragment playFragment = new PlayScreenFragment();
+                manager.beginTransaction()
+                        .replace(R.id.main_menu_fragment_display, playFragment)
+                        .addToBackStack(null)
+                        .commit();
+
                 //start play fragment
             }
         });
@@ -51,6 +62,13 @@ public class MainMenuFragment extends Fragment {
         settingsText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.i(TAG, "Settings button pressed, starting fragment");
+                FragmentManager manager = getFragmentManager();
+                SettingsFragment settingsFragment = new SettingsFragment();
+                manager.beginTransaction()
+                        .replace(R.id.main_menu_fragment_display, settingsFragment)
+                        .addToBackStack(null)
+                        .commit();
                 //start settings fragment
             }
         });

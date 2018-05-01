@@ -10,18 +10,24 @@
         android:id="@+id/play_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/play_text"/>
+        android:layout_gravity="center_horizontal"
+        android:text="@string/play_text"
+        android:textSize="50dp"/>
 
     <TextView
         android:id="@+id/settings_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/settings_text"/>
+        android:layout_gravity="center_horizontal"
+        android:text="@string/settings_text"
+        android:textSize="35dp"/>
 
     <TextView
         android:id="@+id/log_out_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/log_out_text"/>
+        android:layout_gravity="center_horizontal"
+        android:text="@string/log_out_text"
+        android:textSize="35dp"/>
 
 </LinearLayout>

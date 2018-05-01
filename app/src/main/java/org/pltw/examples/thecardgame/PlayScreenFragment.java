@@ -2,6 +2,8 @@ package org.pltw.examples.thecardgame;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +12,13 @@ import android.widget.TextView;
 
 public class PlayScreenFragment extends Fragment {
 
+    private final String TAG = this.getClass().getName();
+
     private TextView playScreenTitle;
     private Button againstABotButton;
     private Button oneDeviceButton;
     private Button internetButton;
+    private Button backButton;
 
     public PlayScreenFragment() {
         // Required empty public constructor
@@ -34,6 +39,7 @@ public class PlayScreenFragment extends Fragment {
         againstABotButton = v.findViewById(R.id.against_a_bot);
         oneDeviceButton = v.findViewById(R.id.two_on_one_device);
         internetButton = v.findViewById(R.id.on_the_internet);
+        backButton = v.findViewById(R.id.back_button_play);
 
         againstABotButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +59,20 @@ public class PlayScreenFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //Todo: start matchmaking service, start game screen with internet opt.
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Todo: end this fragment and display menu fragment
+                Log.i(TAG, "Play screen back button pressed, starting main menu fragment");
+                FragmentManager manager = getFragmentManager();
+                MainMenuFragment menuFragment = new MainMenuFragment();
+                manager.beginTransaction()
+                        .replace(R.id.main_menu_fragment_display, menuFragment)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 

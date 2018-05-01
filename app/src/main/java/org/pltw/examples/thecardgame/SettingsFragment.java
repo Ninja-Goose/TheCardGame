@@ -1,7 +1,11 @@
 package org.pltw.examples.thecardgame;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +37,7 @@ public class SettingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_main_menu, container, false);
+        View v = inflater.inflate(R.layout.fragment_settings, container, false);
 
         settingsTitleText = v.findViewById(R.id.settings_title_text);
         gameVolumeText = v.findViewById(R.id.game_volume_text);
@@ -42,10 +46,15 @@ public class SettingsFragment extends Fragment {
         musicVolumeSlider = v.findViewById(R.id.music_volume_slider);
         backButton = v.findViewById(R.id.back_button);
 
+        SharedPreferences sharedPreferences =
+                getActivity().getApplicationContext().getSharedPreferences(MainMenuActivity.GAME_VOLUME, Context.MODE_PRIVATE);
+
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
+
         gameVolumeSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                //Todo: set volume preference
+                editor.putInt(MainMenuActivity.GAME_VOLUME, i);
             }
 
             @Override
@@ -54,21 +63,24 @@ public class SettingsFragment extends Fragment {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+                editor.commit();
             }
         });
 
         musicVolumeSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                //Todo: set volume preference
+                editor.putInt(MainMenuActivity.MUSIC_VOLUME, i);
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+                editor.commit();
             }
         });
 
@@ -76,6 +88,13 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //Todo: end this fragment, display main menu fragment
+                Log.i(TAG, "Settings back button pressed, starting main menu fragment");
+                FragmentManager manager = getFragmentManager();
+                MainMenuFragment menuFragment = new MainMenuFragment();
+                manager.beginTransaction()
+                        .replace(R.id.main_menu_fragment_display, menuFragment)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 
