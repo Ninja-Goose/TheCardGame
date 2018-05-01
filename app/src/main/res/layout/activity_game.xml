@@ -2,7 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/Background"
+    android:background="@drawable/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GameActivity">
@@ -306,7 +306,7 @@
         app:srcCompat="@drawable/card_back" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/opponentDataTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/opponent_information"
@@ -317,7 +317,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/userDataTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/user_information"
@@ -328,6 +328,7 @@
         app:layout_constraintTop_toTopOf="@+id/guidelineUserArea" />
 
     <HorizontalScrollView
+        android:id="@+id/userHandScrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
