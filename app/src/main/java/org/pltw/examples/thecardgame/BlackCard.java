@@ -14,4 +14,13 @@ public class BlackCard extends Card {
         }
 
     }
+
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
 }
