@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/play_text"
-        android:textSize="50dp"/>
+        android:textSize="50dp"
+        android:textColor="@color/darkTextColor"/>
 
     <TextView
         android:id="@+id/settings_text"
@@ -20,7 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/settings_text"
-        android:textSize="35dp"/>
+        android:textSize="35dp"
+        android:textColor="@color/darkTextColor"/>
 
     <TextView
         android:id="@+id/log_out_text"
@@ -28,6 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/log_out_text"
-        android:textSize="35dp"/>
+        android:textSize="35dp"
+        android:textColor="@color/darkTextColor"/>
 
 </LinearLayout>

@@ -46,7 +46,7 @@ public class SettingsFragment extends Fragment {
         musicVolumeSlider = v.findViewById(R.id.music_volume_slider);
         backButton = v.findViewById(R.id.back_button);
 
-        SharedPreferences sharedPreferences =
+        final SharedPreferences sharedPreferences =
                 getActivity().getApplicationContext().getSharedPreferences(MainMenuActivity.GAME_VOLUME, Context.MODE_PRIVATE);
 
         final SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -64,6 +64,7 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 editor.commit();
+                Log.i(TAG, "GAME_VOLUME = " + Integer.toString(sharedPreferences.getInt(MainMenuActivity.GAME_VOLUME, 50)));
             }
         });
 
@@ -81,6 +82,7 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 editor.commit();
+                Log.i(TAG, "MUSIC_VOLUME = " + Integer.toString(sharedPreferences.getInt(MainMenuActivity.MUSIC_VOLUME, 50)));
             }
         });
 
