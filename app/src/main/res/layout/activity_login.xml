@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/backgroundColor"
     tools:context=".LoginActivity">
 
     <EditText
@@ -12,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/user_name_hint" >
+        android:hint="@string/user_name_hint"
+        android:textColorHint="@color/darkTextColor">
         <requestFocus />
     </EditText>
 
@@ -22,7 +24,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="@string/password_hint" >
+        android:hint="@string/password_hint"
+        android:textColorHint="@color/darkTextColor">
     </EditText>
 
     <EditText
@@ -31,7 +34,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:visibility="gone"
-        android:hint="@string/email_hint" >
+        android:hint="@string/email_hint"
+        android:textColorHint="@color/darkTextColor">
     </EditText>
 
     <Button
@@ -46,6 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
         android:text="@string/sign_up_text"
+        android:textColorHint="@color/darkTextColor"
         android:gravity="center" />
 
     <Button
