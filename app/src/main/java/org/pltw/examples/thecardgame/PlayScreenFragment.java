@@ -1,5 +1,6 @@
 package org.pltw.examples.thecardgame;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -33,7 +34,7 @@ public class PlayScreenFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_play_screen, container, false);
+        final View v = inflater.inflate(R.layout.fragment_play_screen, container, false);
 
         playScreenTitle = v.findViewById(R.id.play_title_text);
         againstABotButton = v.findViewById(R.id.against_a_bot);
@@ -51,7 +52,8 @@ public class PlayScreenFragment extends Fragment {
         oneDeviceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Todo: start game screen with two on one device option
+                Intent intent = new Intent(v.getContext(), GameActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -65,7 +67,6 @@ public class PlayScreenFragment extends Fragment {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Todo: end this fragment and display menu fragment
                 Log.i(TAG, "Play screen back button pressed, starting main menu fragment");
                 FragmentManager manager = getFragmentManager();
                 MainMenuFragment menuFragment = new MainMenuFragment();
