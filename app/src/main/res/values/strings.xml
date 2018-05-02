@@ -21,6 +21,32 @@
 
     <string name="menu_title_text">The Card Game</string>
     <string name="menu_image_description">Image of cards</string>
+  
+    <string name="opponent_far_right_black_card">opponent far right black card</string>
+    <string name="opponent_far_left_black_card">opponent far left black card</string>
+    <string name="opponent_center_black_card">opponent center black card</string>
+    <string name="user_far_right_black_card">user far right black card</string>
+    <string name="user_mid_right_black_card">user mid right black card</string>
+    <string name="user_far_left_black_card">user far left black card</string>
+    <string name="user_mid_left_black_card">user mid left black card</string>
+    <string name="user_center_black_card">user center black card</string>
+    <string name="opponent_far_right_red_card">opponent far right red card</string>
+    <string name="opponent_mid_right_red_card">opponent mid right red card</string>
+    <string name="opponent_far_left_red_card">opponent far left red card</string>
+    <string name="opponent_mid_left_red_card">opponent mid left red card</string>
+    <string name="opponent_center_red_card">opponent center red card</string>
+    <string name="opponent_mid_left_black_card">opponent mid left black card</string>
+    <string name="opponent_mid_right_black_card">opponent mid right black card</string>
+    <string name="user_far_left_red_card">user far left red card</string>
+    <string name="user_mid_left_red_card">user mid left red card</string>
+    <string name="user_far_right_red_card">user far right red card</string>
+    <string name="user_mid_right_red_card">user mid right red card</string>
+    <string name="user_center_red_card">user center red card</string>
+    <string name="user_information">user information</string>
+    <string name="opponent_information">opponent information</string>
+    <string name="card_deck">card deck</string>
+    <string name="user_data">Points: 17\nHealth: 42</string>
+    <string name="opponent_data">Points: 13\nHealth: 47</string>
 
     <string name="play_text">Play!</string>
     <string name="settings_text">Settings</string>
