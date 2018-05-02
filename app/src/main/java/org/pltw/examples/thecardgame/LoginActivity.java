@@ -18,11 +18,6 @@ import com.backendless.exceptions.BackendlessFault;
 
 public class LoginActivity extends AppCompatActivity {
 
-    //Test user info:
-    //Email = test@test.test
-    //Pw = testtest
-    //Name = test
-
     private final String TAG = this.getClass().getName();
 
     private Button signUpButton;
