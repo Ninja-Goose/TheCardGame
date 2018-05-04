@@ -2,11 +2,12 @@ package org.pltw.examples.thecardgame;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class GameActivity extends AppCompatActivity { //Main gameplay logic
+public class GameActivity extends AppCompatActivity{ //Main gameplay logic
 
     //create variables linked to all of the image views
 
@@ -35,6 +36,9 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
     private TextView opponentDataTextView;
 
     private HorizontalScrollView userHand;
+
+    private Player user;
+    private Player opponent;
 
     public GameActivity() {
     }
@@ -70,9 +74,94 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
 
         userHand = findViewById(R.id.userHandScrollView);
 
-
-
-
-
     }
+
+    //Todo: associate card image views with specific cards?
+
+    //Todo: Game loop
+    //      know game type (internet, bot, two on one)
+    //      implement end turn button
+    //      player.turnEnergy(lastTurnJack = true/false?)
+
+    //Todo: when card in scroll area clicked, wait for another click to specify where the card should go and place it there
+    //      remove energy cost from player (player.removeEnergy(energy)) if they have enough
+
+
+    public void displayCard(int id) {
+        //Todo: get the card associated with an image view id
+        //Todo: Start new fragment(?) to display enlarged card and info
+        //wait for click off and stop fragment
+    }
+
+    public void playedCardClicked(View v) {
+
+        //displayCard(v.getId())?
+
+        /*switch (v.getId()) {
+            case R.id.opponentFarLeftRedImageView: //opponent cards, red cards
+                //code
+                break;
+            case R.id.opponentMidLeftRedImageView:
+                //code
+                break;
+            case R.id.opponentCenterRedImageView:
+                //code
+                break;
+            case R.id.opponentMidRightRedImageView:
+                //code
+                break;
+            case R.id.opponentFarRightRedImageView:
+                //code
+                break;
+            case R.id.opponentFarLeftBlackImageView: //black cards
+                //code
+                break;
+            case R.id.opponentMidLeftBlackImageView:
+                //code
+                break;
+            case R.id.opponentCenterBlackImageView:
+                //code
+                break;
+            case R.id.opponentMidRightBlackImageView:
+                //code
+                break;
+            case R.id.opponentFarRightBlackImageView:
+                //code
+                break;
+
+
+            case R.id.userFarLeftRedImageView: //player cards, red cards
+                //code
+                break;
+            case R.id.userMidLeftRedImageView:
+                //code
+                break;
+            case R.id.userCenterRedImageView:
+                //code
+                break;
+            case R.id.userMidRightRedImageView:
+                //code
+                break;
+            case R.id.userFarRightRedImageView:
+                //code
+                break;
+            case R.id.userFarLeftBlackImageView: //black cards
+                //code
+                break;
+            case R.id.userMidLeftBlackImageView:
+                //code
+                break;
+            case R.id.user:
+                //code
+                break;
+            case R.id.opponentFarRightBlackImageView:
+                //code
+                break;
+            case R.id.opponentFarRightBlackImageView:
+                //code
+                break;
+
+        }*/
+    } // in xml, set android on click property to "playedCardClicked"
+
 }
