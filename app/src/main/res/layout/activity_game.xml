@@ -337,9 +337,12 @@
         app:layout_constraintTop_toTopOf="@+id/guidelineUserArea">
 
         <LinearLayout
+            android:id="@+id/userHandLinearLayout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical" />
+            android:orientation="horizontal">
+
+        </LinearLayout>
     </HorizontalScrollView>
 
 </android.support.constraint.ConstraintLayout>
