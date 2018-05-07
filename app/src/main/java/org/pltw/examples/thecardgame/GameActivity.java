@@ -153,12 +153,6 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
     }
 
 
-    public void displayCard(int id) {
-        //Todo: get the card associated with an image view id
-        //Todo: Start new fragment(?) to display enlarged card and info
-        //wait for click off and stop fragment
-    }
-
     private List<Card> drawCard(List<Card> hand) {
         Card card = generateNewCard();
         ImageView imageView = new ImageView(userHandLinearLayout.getContext());
@@ -171,6 +165,14 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
     }
 
 
+
+
+    
+    public void displayCard(int id) {
+        //Todo: get the card associated with an image view id
+        //Todo: Start new fragment(?) to display enlarged card and info
+        //wait for click off and stop fragment
+    }
 
     public void playedCardClicked(View v) {
 
