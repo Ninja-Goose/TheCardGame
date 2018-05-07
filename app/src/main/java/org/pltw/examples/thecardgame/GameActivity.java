@@ -117,10 +117,11 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         //      remove energy cost from player (player.removeEnergy(energy)) if they have enough
 
     }
+
     private Card generateNewCard() {
         boolean color = random.nextBoolean();
         boolean suit = random.nextBoolean();
-        int val = random.nextInt(12)+1;
+        int val = random.nextInt(12) + 1;
         String value;
         String cardSuit;
         if (val == 1) {
@@ -150,31 +151,30 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
             }
             return new BlackCard(value, cardSuit, "hand");
         }
-
-
-
-    public void displayCard(int id) {
-        //Todo: get the card associated with an image view id
-        //Todo: Start new fragment(?) to display enlarged card and info
-        //wait for click off and stop fragment
-    }
-
-    private List<Card> drawCard(List<Card> hand) {
-        Card card = generateNewCard();
-        ImageView imageView = new ImageView(userHandLinearLayout.getContext());
-        imageView.setImageResource(getResources().getIdentifier(card.getImageSource(),"drawable", getPackageName()));
-        imageView.setVisibility(View.VISIBLE);
-        card.setImageDisplay(imageView);
-
-        hand.add(card);
-        return hand;
     }
 
 
+        public void displayCard ( int id){
+            //Todo: get the card associated with an image view id
+            //Todo: Start new fragment(?) to display enlarged card and info
+            //wait for click off and stop fragment
+        }
 
-    public void playedCardClicked(View v) {
+        private List<Card> drawCard (List < Card > hand) {
+            Card card = generateNewCard();
+            ImageView imageView = new ImageView(userHandLinearLayout.getContext());
+            imageView.setImageResource(getResources().getIdentifier(card.getImageSource(), "drawable", getPackageName()));
+            imageView.setVisibility(View.VISIBLE);
+            card.setImageDisplay(imageView);
 
-        //displayCard(v.getId())?
+            hand.add(card);
+            return hand;
+        }
+
+
+        public void playedCardClicked (View v){
+
+            //displayCard(v.getId())?
 
         /*switch (v.getId()) {
             case R.id.opponentFarLeftRedImageView: //opponent cards, red cards
@@ -241,6 +241,6 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
                 break;
 
         }*/
-    } // in xml, set android on click property to "playedCardClicked"
+        } // in xml, set android on click property to "playedCardClicked"
 
-}
+    }
