@@ -6,6 +6,7 @@ public class Player {
     private int health;
     private int energy;
     private List<Card> hand;
+    private List<Card> cardsInPlay;
     private boolean turn;
 
     public Player(int health, int energy, List<Card> hand, boolean turn) {
@@ -63,6 +64,14 @@ public class Player {
 
     public void setHand(List<Card> hand) {
         this.hand = hand;
+    }
+
+    public List<Card> getCardsInPlay() {
+        return cardsInPlay;
+    }
+
+    public void setCardsInPlay(List<Card> cardsInPlay) {
+        this.cardsInPlay = cardsInPlay;
     }
 
     public boolean isTurn() {
