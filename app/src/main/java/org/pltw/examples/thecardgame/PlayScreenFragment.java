@@ -53,7 +53,7 @@ public class PlayScreenFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(v.getContext(), GameActivity.class);
-                startActivity(intent);
+                startActivity(intent); //Todo: add extra saying that it is two on one device
             }
         });
 

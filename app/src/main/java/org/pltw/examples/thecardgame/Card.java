@@ -3,12 +3,12 @@ package org.pltw.examples.thecardgame;
 import android.widget.ImageView;
 
 public abstract class Card {
-    private String imageSource;
-    private String value; //lowercase
-    private String suit; //lowercase
-    private String position;
-    private int cost;
-    private ImageView imageDisplay;
+    protected String imageSource;
+    protected String value; //lowercase
+    protected String suit; //lowercase
+    protected String position;
+    protected int cost;
+    protected ImageView imageDisplay;
 
 
     public Card() {

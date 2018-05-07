@@ -104,6 +104,7 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         userHandLinearLayout = findViewById(R.id.userHandLinearLayout);
 
 
+        //Turn
 
 
     }
@@ -145,12 +146,16 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
 
     }
 
-    private void drawCard(List<Card> hand) {
+    private List<Card> drawCard(List<Card> hand) {
         Card card = generateNewCard();
         ImageView imageView = new ImageView(userHandLinearLayout.getContext());
         imageView.setImageResource(getResources().getIdentifier(card.getImageSource(),"drawable", getPackageName()));
         imageView.setVisibility(View.VISIBLE);
         card.setImageDisplay(imageView);
 
+        hand.add(card);
+        return hand;
     }
+
+
 }
