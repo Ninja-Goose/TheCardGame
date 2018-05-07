@@ -104,7 +104,7 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         userHandLinearLayout = findViewById(R.id.userHandLinearLayout);
 
 
-        //Turn
+        //Todo: add the mechanics for the player taking a turn
 
         //Todo: associate card image views with specific cards?
 
@@ -159,16 +159,31 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         imageView.setImageResource(getResources().getIdentifier(card.getImageSource(),"drawable", getPackageName()));
         imageView.setVisibility(View.VISIBLE);
         card.setImageDisplay(imageView);
-
         hand.add(card);
         return hand;
+    }
+
+    private Player takeTurn(Player player) {
+        int numberOfJacks = 0;
+        for (Card card : player.getCardsInPlay()) {
+            if (card.isJack()) {
+                numberOfJacks++;
+            }
+        }
+        for (int i = 0; i < numberOfJacks; i++) {
+            player.setHand(drawCard(player.getHand()));
+        }
+
+
+
+        return player;
     }
 
 
 
 
-    
-    public void displayCard(int id) {
+
+    private void displayCard(int id) {
         //Todo: get the card associated with an image view id
         //Todo: Start new fragment(?) to display enlarged card and info
         //wait for click off and stop fragment
