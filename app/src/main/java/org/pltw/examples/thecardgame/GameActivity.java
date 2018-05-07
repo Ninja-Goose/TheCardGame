@@ -2,6 +2,7 @@ package org.pltw.examples.thecardgame;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
@@ -14,6 +15,8 @@ import java.util.Random;
 public class GameActivity extends AppCompatActivity { //Main gameplay logic
 
     Random random = new Random();
+
+    final String TAG = this.getClass().getName();
 
     //create variables linked to all of the image views
 
@@ -82,7 +85,7 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         opponentFarLeftBlackCardImageView.setVisibility(View.INVISIBLE);
         userFarRightBlackCardImageView.setVisibility(View.INVISIBLE);
         userMidRightBlackCardImageView.setVisibility(View.INVISIBLE);
-        userCenterBlackCardImageView.setVisibility(View.INVISIBLE);
+        userCenterBlackCardImageView.setVisibility(View.VISIBLE);
         userMidLeftBlackCardImageView.setVisibility(View.INVISIBLE);
         userFarLeftBlackCardImageView.setVisibility(View.INVISIBLE);
         opponentFarRightRedCardImageView.setVisibility(View.INVISIBLE);
@@ -168,7 +171,8 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
 
 
     
-    public void displayCard(int id) {
+    private void displayCard(int id) {
+        Log.i(TAG, "Image view clicked: " + id);
         //Todo: get the card associated with an image view id
         //Todo: Start new fragment(?) to display enlarged card and info
         //wait for click off and stop fragment
@@ -176,7 +180,7 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
 
     public void playedCardClicked(View v) {
 
-        //displayCard(v.getId())?
+        displayCard(v.getId());
 
         /*switch (v.getId()) {
             case R.id.opponentFarLeftRedImageView: //opponent cards, red cards
