@@ -113,7 +113,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guidelineUserArea"
         app:layout_constraintEnd_toStartOf="@+id/guideline40percent"
         app:layout_constraintStart_toStartOf="@+id/guideline20percent"
-        app:srcCompat="@drawable/card_10c" />
+        app:srcCompat="@drawable/card_10s" /> <!--test-->
 
     <ImageView
         android:id="@+id/userCenterBlackImageView"
@@ -125,7 +125,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guidelineUserArea"
         app:layout_constraintEnd_toStartOf="@+id/guideline60percent"
         app:layout_constraintStart_toStartOf="@+id/guideline40percent"
-        app:srcCompat="@drawable/card_10c" />
+        app:srcCompat="@drawable/card_10c" /> <!--test-->
 
     <ImageView
         android:id="@+id/opponentFarRightRedImageView"
@@ -137,7 +137,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline80percent"
         app:layout_constraintTop_toTopOf="@+id/guidelineOpponentArea"
-        app:srcCompat="@drawable/card_10d" />
+        app:srcCompat="@drawable/card_10d" /> <!--test-->
 
     <ImageView
         android:id="@+id/opponentMidRightRedImageView"
@@ -185,7 +185,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline60percent"
         app:layout_constraintStart_toStartOf="@+id/guideline40percent"
         app:layout_constraintTop_toTopOf="@+id/guidelineOpponentArea"
-        app:srcCompat="@drawable/card_10d" />
+        app:srcCompat="@drawable/card_10h" /> <!--test-->
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline20percent"
