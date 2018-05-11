@@ -1,7 +1,9 @@
 package org.pltw.examples.thecardgame;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
@@ -14,6 +16,8 @@ import java.util.Random;
 public class GameActivity extends AppCompatActivity { //Main gameplay logic
 
     Random random = new Random();
+
+    final String TAG = this.getClass().getName();
 
     //create variables linked to all of the image views
 
@@ -88,12 +92,12 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         opponentFarLeftBlackCardImageView.setVisibility(View.INVISIBLE);
         userFarRightBlackCardImageView.setVisibility(View.INVISIBLE);
         userMidRightBlackCardImageView.setVisibility(View.INVISIBLE);
-        userCenterBlackCardImageView.setVisibility(View.INVISIBLE);
-        userMidLeftBlackCardImageView.setVisibility(View.INVISIBLE);
+        userCenterBlackCardImageView.setVisibility(View.VISIBLE); //test
+        userMidLeftBlackCardImageView.setVisibility(View.VISIBLE); //test
         userFarLeftBlackCardImageView.setVisibility(View.INVISIBLE);
-        opponentFarRightRedCardImageView.setVisibility(View.INVISIBLE);
+        opponentFarRightRedCardImageView.setVisibility(View.VISIBLE); //test
         opponentMidRightRedCardImageView.setVisibility(View.INVISIBLE);
-        opponentCenterRedCardImageView.setVisibility(View.INVISIBLE);
+        opponentCenterRedCardImageView.setVisibility(View.VISIBLE); //test
         opponentMidLeftRedCardImageView.setVisibility(View.INVISIBLE);
         opponentFarLeftRedCardImageView.setVisibility(View.INVISIBLE);
         userFarRightRedCardImageView.setVisibility(View.INVISIBLE);
@@ -327,9 +331,12 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
 
 
 
-
-
+    
     private void displayCard(int id) {
+        ImageView imageViewClicked = findViewById(id);
+        Log.i(TAG, "Image view clicked: " + id + ", drawable: " + imageViewClicked.getDrawable().toString());
+        Intent i = new Intent();
+
         //Todo: get the card associated with an image view id
         //Todo: Start new fragment(?) to display enlarged card and info
         //wait for click off and stop fragment
@@ -337,7 +344,7 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
 
     public void playedCardClicked(View v) {
 
-        //displayCard(v.getId())?
+        displayCard(v.getId());
 
         /*switch (v.getId()) {
             case R.id.opponentFarLeftRedImageView: //opponent cards, red cards
