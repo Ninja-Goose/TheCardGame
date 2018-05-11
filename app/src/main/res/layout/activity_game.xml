@@ -322,7 +322,7 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/user_information"
         android:text="@string/user_data"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/end_turn_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline80percent"
         app:layout_constraintTop_toTopOf="@+id/guidelineUserArea" />
@@ -344,5 +344,16 @@
 
         </LinearLayout>
     </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/end_turn_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/end_turn"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline80percent"
+        app:layout_constraintTop_toBottomOf="@+id/userDataTextView" />
 
 </android.support.constraint.ConstraintLayout>

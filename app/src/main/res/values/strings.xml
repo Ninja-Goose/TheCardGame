@@ -60,4 +60,5 @@
     <string name="two_on_one_device_text">Two people on one device</string>
     <string name="against_a_bot_text">Against a bot</string>
     <string name="internet_text">On the internet</string>
+    <string name="end_turn">End Turn</string>
 </resources>

@@ -6,7 +6,8 @@ public class Player {
     private int health;
     private int energy;
     private List<Card> hand;
-    private List<Card> cardsInPlay;
+    private List<RedCard> redCardsInPlay;
+    private List<BlackCard> blackCardsInPlay;
     private boolean turn;
 
     public Player(int health, int energy, List<Card> hand, boolean turn) {
@@ -38,16 +39,13 @@ public class Player {
         this.energy -= energy;
     }
 
-    public void turnEnergy(boolean lastTurnJack) {
-        if (lastTurnJack) {
-            this.energy += 25;
+    public void addTurnEnergy(int lastTurnJackValue) {
+        if (this.energy < 10) {
+            this.energy += 20;
         } else {
-            if (this.energy < 10) {
-                this.energy += 20;
-            } else {
-                this.energy = 30;
-            }
+            this.energy = 30;
         }
+        this.energy += lastTurnJackValue;
     }
 
     public int getEnergy() {
@@ -66,12 +64,20 @@ public class Player {
         this.hand = hand;
     }
 
-    public List<Card> getCardsInPlay() {
-        return cardsInPlay;
+    public List<RedCard> getRedCardsInPlay() {
+        return redCardsInPlay;
     }
 
-    public void setCardsInPlay(List<Card> cardsInPlay) {
-        this.cardsInPlay = cardsInPlay;
+    public void setRedCardsInPlay(List<RedCard> redCardsInPlay) {
+        this.redCardsInPlay = redCardsInPlay;
+    }
+
+    public List<BlackCard> getBlackCardsInPlay() {
+        return blackCardsInPlay;
+    }
+
+    public void setBlackCardsInPlay(List<BlackCard> blackCardsInPlay) {
+        this.blackCardsInPlay = blackCardsInPlay;
     }
 
     public boolean isTurn() {

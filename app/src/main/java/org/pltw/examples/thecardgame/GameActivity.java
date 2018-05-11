@@ -3,12 +3,12 @@ package org.pltw.examples.thecardgame;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.List;
 import java.util.Random;
 
 public class GameActivity extends AppCompatActivity { //Main gameplay logic
@@ -46,6 +46,12 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
 
     private Player user;
     private Player opponent;
+
+    private boolean endGame;
+    private String gameType;
+    private Button endTurnButton;
+    private boolean secondTurn;
+    private int lastTurnJackValue;
 
     public GameActivity() {
     }
@@ -103,18 +109,72 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         userHandScrollView = findViewById(R.id.userHandScrollView);
         userHandLinearLayout = findViewById(R.id.userHandLinearLayout);
 
+        user = new Player();
+        opponent = new Player();
+        endTurnButton = findViewById(R.id.end_turn_button);
+        lastTurnJackValue = 0;
 
-        //Todo: add the mechanics for the player taking a turn
 
-        //Todo: associate card image views with specific cards?
+        //Start the Game
+        for (int i = 0; i < 5; i++) {
+            user.getHand().add(drawCard(true));
+            opponent.getHand().add(drawCard(false));
+        }
+        takeTurn(true);
 
-        //Todo: Game loop
-        //      know game type (internet, bot, two on one)
-        //      implement end turn button
-        //      player.turnEnergy(lastTurnJack = true/false?)
+        //endGame = false;
+        gameType = "two on one"; //Todo: use intents to implement the setting of the game type
+
+        /*
+        while (!endGame) {
+            //Todo: implement game loop if necessary
+            //      know game type (internet, bot, two on one)
+            //      implement end turn button
+            //      player.addTurnEnergy(lastTurnJackValue = true/false?)
+
+            if (gameType.equals("two on one")) {
+                Player temp = new Player();
+
+                user = takeTurn(user, true);
+
+
+
+
+            } else if (gameType.equals("bot")) {
+                //will implement later
+            } else if (gameType.equals("internet")) {
+                //will implement later
+            }
+
+        }
+        */
+        endTurnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (gameType.equals("two on one")) {
+                    if (secondTurn) {
+                        attack();
+                    } else {
+                        swapPlayers();
+                    }
+                    takeTurn(true);
+
+                } else if (gameType.equals("bot")) {
+                    //will implement later
+                } else if (gameType.equals("internet")) {
+                    //will implement later
+                }
+            }
+        });
+
+
+
+
 
         //Todo: when card in scroll area clicked, wait for another click to specify where the card should go and place it there
         //      remove energy cost from player (player.removeEnergy(energy)) if they have enough
+
+        //Todo: associate card image views with specific cards?
 
     }
     private Card generateNewCard() {
@@ -153,30 +213,116 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
     }
 
 
-    private List<Card> drawCard(List<Card> hand) {
+    private Card drawCard(boolean isUser) {
         Card card = generateNewCard();
-        ImageView imageView = new ImageView(userHandLinearLayout.getContext());
-        imageView.setImageResource(getResources().getIdentifier(card.getImageSource(),"drawable", getPackageName()));
-        imageView.setVisibility(View.VISIBLE);
-        card.setImageDisplay(imageView);
-        hand.add(card);
-        return hand;
+        if (isUser) {
+            ImageView imageView = new ImageView(userHandLinearLayout.getContext());
+            imageView.setImageResource(getResources().getIdentifier(card.getImageSource(), "drawable", getPackageName()));
+            imageView.setVisibility(View.VISIBLE);
+            /*imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    handCardClick();
+                }
+            });*/
+            card.setImageDisplay(imageView);
+        }
+        return card;
     }
 
-    private Player takeTurn(Player player) {
-        int numberOfJacks = 0;
-        for (Card card : player.getCardsInPlay()) {
-            if (card.isJack()) {
-                numberOfJacks++;
+    private void takeTurn(boolean isUser) {
+        if (isUser) {
+            int numberOfJacks = 0;
+            for (Card card : user.getRedCardsInPlay()) {
+                if (card.isJack()) {
+                    numberOfJacks++;
+                }
+            }
+            for (int i = 0; i < numberOfJacks + 2; i++) {
+                user.getHand().add(drawCard(true));
+            }
+            user.addTurnEnergy(lastTurnJackValue);
+            lastTurnJackValue = 0;
+        } else { //only applicable with bot
+            int numberOfJacks = 0;
+            for (Card card : opponent.getRedCardsInPlay()) {
+                if (card.isJack()) {
+                    numberOfJacks++;
+                }
+            }
+            for (int i = 0; i < numberOfJacks + 2; i++) {
+                opponent.getHand().add(drawCard(false));
+            }
+            opponent.addTurnEnergy(lastTurnJackValue);
+            lastTurnJackValue = 0;
+            //need to add the bot playing cards
+        }
+    }
+
+    private void swapPlayers() {
+        Player temp;
+        temp = user;
+        user = opponent;
+        opponent = temp;
+        //Todo: update all of the ImageViews and TextViews
+    }
+
+
+    private void attack() {
+        for (BlackCard blackCard : opponent.getBlackCardsInPlay()) { //checks whether two cards are in the same lane
+            for (RedCard redCard : user.getRedCardsInPlay()) {
+                if (redCard.getPosition().equals(blackCard.getPosition())) {
+                    if (!redCard.isShielded()) {
+                        if (!redCard.isInvincible()) {
+                            redCard.setHealth(redCard.getHealth() - blackCard.getAttack());
+                        }
+                    } else {
+                        redCard.setShielded(false);
+                    }
+                    //Todo: implement face card and 10 specials
+                    if (redCard.getHealth()<=0) {
+                        //Todo: disconnect red card from ImageView
+                        user.setHealth(user.getHealth()+redCard.getHealth());
+                        user.getRedCardsInPlay().remove(redCard);
+                    }
+                    //Todo: disconnect black card from ImageView
+                    opponent.getBlackCardsInPlay().remove(blackCard);
+                }
             }
         }
-        for (int i = 0; i < numberOfJacks; i++) {
-            player.setHand(drawCard(player.getHand()));
+        for (BlackCard blackCard : user.getBlackCardsInPlay()) { //checks whether two cards are in the same lane
+            for (RedCard redCard : opponent.getRedCardsInPlay()) {
+                if (redCard.getPosition().equals(blackCard.getPosition())) {
+                    if (!redCard.isShielded()) {
+                        if (!redCard.isInvincible()) {
+                            redCard.setHealth(redCard.getHealth() - blackCard.getAttack());
+                        }
+                    } else {
+                        redCard.setShielded(false);
+                    }
+                    //Todo: implement face card and 10 specials
+                    if (redCard.getHealth()<=0) {
+                        //Todo: disconnect red card from ImageView
+                        opponent.setHealth(user.getHealth()+redCard.getHealth());
+                        opponent.getRedCardsInPlay().remove(redCard);
+                    }
+                    //Todo: disconnect black card from ImageView
+                    user.getBlackCardsInPlay().remove(blackCard);
+                }
+            }
         }
-
-
-
-        return player;
+        for (BlackCard blackCard : user.getBlackCardsInPlay()) {
+            opponent.setHealth(opponent.getHealth()-blackCard.getAttack());
+        }
+        for (BlackCard blackCard : opponent.getBlackCardsInPlay()) {
+            user.setHealth(user.getHealth()-blackCard.getAttack());
+        }
+        //Todo: update TextViews for user and opponent health
+        if (opponent.getHealth()<=0) {
+            //Todo: implement toast to display user winning
+        } else if (user.getHealth()<=0) {
+            //Todo: implement toast to display user losing
+        }
     }
 
 
