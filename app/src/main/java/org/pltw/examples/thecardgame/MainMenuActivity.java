@@ -26,12 +26,20 @@ public class MainMenuActivity extends AppCompatActivity {
         editor.putInt(MUSIC_VOLUME, 50);
         editor.commit();
 
+
         FragmentManager manager = getSupportFragmentManager();
-        Fragment fragment = fragment = new MainMenuFragment();
+        Fragment fragment = new MainMenuFragment();
 
-        manager.beginTransaction()
-                .add(R.id.main_menu_fragment_display, fragment).
-                commit();
+        if (manager.getFragments() != null) {
+            manager.beginTransaction()
+                    .replace(R.id.main_menu_fragment_display, fragment)
+                    .addToBackStack(null)
+                    .commit();
+        } else {
+            manager.beginTransaction()
+                    .add(R.id.main_menu_fragment_display, fragment).
+                    commit();
 
+        }
     }
 }

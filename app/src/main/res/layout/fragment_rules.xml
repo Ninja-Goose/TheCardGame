@@ -9,7 +9,8 @@
     <ScrollView
         android:id="@+id/rulesScrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:scrollbars="vertical"
         android:fillViewport="true">
 
@@ -19,4 +20,12 @@
             android:layout_height="wrap_content"
             android:text="@string/rules_text" />
     </ScrollView>
+
+    <Button
+        android:id="@+id/back_button_rules"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/back_button_text"/>
+
 </LinearLayout>
