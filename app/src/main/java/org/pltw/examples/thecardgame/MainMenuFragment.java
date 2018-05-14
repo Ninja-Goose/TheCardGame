@@ -23,6 +23,7 @@ public class MainMenuFragment extends Fragment {
     private TextView playText;
     private TextView settingsText;
     private TextView logOutText;
+    private TextView rulesText;
 
     public MainMenuFragment() {
         // Required empty public constructor
@@ -43,6 +44,7 @@ public class MainMenuFragment extends Fragment {
         playText = v.findViewById(R.id.play_text);
         settingsText = v.findViewById(R.id.settings_text);
         logOutText = v.findViewById(R.id.log_out_text);
+        rulesText = v.findViewById(R.id.rules_text);
 
         playText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +72,20 @@ public class MainMenuFragment extends Fragment {
                         .addToBackStack(null)
                         .commit();
                 //start settings fragment
+            }
+        });
+
+        rulesText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i(TAG, "Rules button pressed, starting fragment");
+                FragmentManager manager = getFragmentManager();
+                RulesFragment rulesFragment = new RulesFragment();
+                manager.beginTransaction()
+                        .replace(R.id.main_menu_fragment_display, rulesFragment)
+                        .addToBackStack(null)
+                        .commit();
+                //start rules fragment
             }
         });
 

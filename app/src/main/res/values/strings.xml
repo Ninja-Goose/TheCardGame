@@ -21,7 +21,7 @@
 
     <string name="menu_title_text">The Card Game</string>
     <string name="menu_image_description">Image of cards</string>
-  
+
     <string name="opponent_far_right_black_card">opponent far right black card</string>
     <string name="opponent_far_left_black_card">opponent far left black card</string>
     <string name="opponent_center_black_card">opponent center black card</string>
@@ -45,8 +45,8 @@
     <string name="user_information">user information</string>
     <string name="opponent_information">opponent information</string>
     <string name="card_deck">card deck</string>
-    <string name="user_data">Points: 17\nHealth: 42</string>
-    <string name="opponent_data">Points: 13\nHealth: 47</string>
+    <string name="user_data">Energy: 17\nHealth: 42</string>
+    <string name="opponent_data">Energy: 13\nHealth: 47</string>
 
     <string name="play_text">Play!</string>
     <string name="settings_text">Settings</string>
@@ -61,4 +61,39 @@
     <string name="against_a_bot_text">Against a bot</string>
     <string name="internet_text">On the internet</string>
     <string name="end_turn">End Turn</string>
+
+    <string name="rules_button_text">Rules</string>
+
+    <string name="rules_text">Rules of the game:\n\n
+At the start of each player’s Turn, they draw 2 cards from the Draw Pile.\n\nAt the start of each player’s Turn, they gain 20 Energy\n\n
+If a player ends their Turn with extra Energy, they carry over to the next Turn, up to a maximum of 30 Energy\n\n
+Each player has a Turn each Round, the order in which they happen alternates (If player one goes first on round one, they go second on round two).\n\n
+When both players have ended their Turns, all Attacking cards attack, in the order from the Draw Pile out.\n\n
+Black cards are classified as Attacking cards, and red cards are classified as Defending cards.\n\n
+Each player has 50 Health\n\n
+If an Attacking card is not completely blocked by a Defending card, the remaining damage reduces the player’s Health by the Attacking card’s damage, subtracted by any Defending card’s health.\n\n
+To play a card on your Turn, you must have Energy equal or greater to the card’s value (i.e. playing a 4 of clubs requires 4 Energy)\n\n
+When you play a card, reduce your Energy by the card’s value.\n\n
+Face cards (Jack, Queen, King and Ace) cost 15 Energy to play.\n\n
+Ace\n
+Red Aces have 1 health but can make a Defending card invincible for the Round\n
+Black Aces deal 1 damage but can remove an opponent’s Defending card from the playing field before any attacks happen at the end of the Round\n\n
+2 through 9\n
+Red numbered cards have health equal to their value\n
+Black numbered cards deal damage equal to their value\n\n
+10\n
+Red 10s have 10 health and can have other Defending cards placed in their lane.\n
+Black 10s deal 10 damage and can have other Damaging cards placed in their lane.\n\n
+Jack\n
+Red Jacks have 10 health and allow you to draw an extra card each Turn they are on the board.\n
+Black Jacks deal 10 damage and give you 5 extra Energy next Round while also increasing the maximum amount of Energy you carry over next turn to 40.\n\n
+Queen\n
+Red Queens can move into any open lane at the end of the Round before any Attack cards attack.\n
+Black Queens can move into any open lane at the end of the Round before any Attack cards attack.\n\n
+King\n
+Reg Kings have 10 health and defend their adjacent rows from a single attack completely.\n
+Black Kings deal 10 damage and attack adjacent rows for 5 damage\n\n
+If a Joker card is played, the opponents next Turn is skipped, no cards or Energy are gained\n
+(Jokers are not implemented yet)
+</string>
 </resources>

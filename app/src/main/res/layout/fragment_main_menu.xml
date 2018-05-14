@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/play_text"
-        android:textSize="50dp"
+        android:textSize="50sp"
         android:textColor="@color/darkTextColor"/>
 
     <TextView
@@ -21,7 +21,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/settings_text"
-        android:textSize="35dp"
+        android:textSize="35sp"
+        android:textColor="@color/darkTextColor"/>
+    <TextView
+        android:id="@+id/rules_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/rules_button_text"
+        android:textSize="35sp"
         android:textColor="@color/darkTextColor"/>
 
     <TextView
@@ -30,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/log_out_text"
-        android:textSize="35dp"
+        android:textSize="35sp"
         android:textColor="@color/darkTextColor"/>
 
 </LinearLayout>
