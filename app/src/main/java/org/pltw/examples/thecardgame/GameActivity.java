@@ -57,6 +57,13 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
     private boolean secondTurn;
     private int lastTurnJackValue;
 
+    private String userDataText;
+    private String opponentDataText;
+    private int userEnergy;
+    private int opponentEnergy;
+    private int userHealth;
+    private int opponentHealth;
+
     public GameActivity() {
     }
 
@@ -118,6 +125,13 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         endTurnButton = findViewById(R.id.end_turn_button);
         lastTurnJackValue = 0;
 
+        userEnergy = 20;
+        userHealth = 50;
+        opponentEnergy = 20;
+        opponentHealth = 50;
+        userDataText = getString(R.string.user_data,userEnergy,userHealth);
+        opponentDataText = getString(R.string.opponent_data,opponentEnergy,opponentHealth);
+
 
         //Start the Game
         for (int i = 0; i < 5; i++) {
@@ -129,29 +143,7 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         //endGame = false;
         gameType = "two on one"; //Todo: use intents to implement the setting of the game type
 
-        /*
-        while (!endGame) {
-            //Todo: implement game loop if necessary
-            //      know game type (internet, bot, two on one)
-            //      implement end turn button
-            //      player.addTurnEnergy(lastTurnJackValue = true/false?)
 
-            if (gameType.equals("two on one")) {
-                Player temp = new Player();
-
-                user = takeTurn(user, true);
-
-
-
-
-            } else if (gameType.equals("bot")) {
-                //will implement later
-            } else if (gameType.equals("internet")) {
-                //will implement later
-            }
-
-        }
-        */
         endTurnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -170,8 +162,6 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
                 }
             }
         });
-
-
 
 
 
@@ -329,6 +319,16 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         }
     }
 
+
+    private void updateTextView(boolean isUser) {
+        if (isUser) {
+            userDataText = getString(R.string.user_data,userEnergy,userHealth);
+            userDataTextView.setText(userDataText);
+        } else {
+            opponentDataText = getString(R.string.opponent_data,opponentEnergy,opponentHealth);
+            opponentDataTextView.setText(opponentDataText);
+        }
+    }
 
 
     
