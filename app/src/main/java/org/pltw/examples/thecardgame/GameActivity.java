@@ -147,18 +147,22 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         endTurnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (gameType.equals("two on one")) {
-                    if (secondTurn) {
-                        attack();
-                    } else {
-                        swapPlayers();
-                    }
-                    takeTurn(true);
+                switch(gameType) {
+                    case ("two on one"):
+                        if (secondTurn) {
+                            attack();
+                        } else {
+                            swapPlayers();
+                        }
+                        takeTurn(true);
 
-                } else if (gameType.equals("bot")) {
-                    //will implement later
-                } else if (gameType.equals("internet")) {
-                    //will implement later
+                        break;
+                    case ("bot"):
+                        //will implement later
+                        break;
+                    case ("internet"):
+                        //will implement later
+                        break;
                 }
             }
         });
@@ -177,16 +181,22 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         int val = random.nextInt(12) + 1;
         String value;
         String cardSuit;
-        if (val == 1) {
-            value = "a";
-        } else if (val == 11) {
-            value = "j";
-        } else if (val == 12) {
-            value = "q";
-        } else if (val == 13) {
-            value = "k";
-        } else {
-            value = Integer.toString(val);
+        switch (val) {
+            case (1):
+                value = "a";
+                break;
+            case (11):
+                value = "j";
+                break;
+            case (12):
+                value = "q";
+                break;
+            case (13):
+                value = "k";
+                break;
+            default:
+                value = Integer.toString(val);
+                break;
         }
 
         if (color) {
