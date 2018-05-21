@@ -9,7 +9,7 @@ public abstract class Card {
     protected String position; //hand, farLeft, midLeft, center, midRight, farRight
     protected int cost;
     protected ImageView imageDisplay;
-    protected boolean jack;
+    protected boolean isJack;
 
 
     public Card() {
@@ -25,7 +25,7 @@ public abstract class Card {
         this.position = position;
         if (value.equals("j")||value.equals("q")||value.equals("k")||value.equals("a")) {
             if (value.equals("j")) {
-                jack = true;
+                isJack = true;
             }
             cost = 15;
         } else if (value.equals("rj")||value.equals("bj")) {
@@ -85,10 +85,10 @@ public abstract class Card {
     }
 
     public boolean isJack() {
-        return jack;
+        return isJack;
     }
 
     public void setJack(boolean jack) {
-        this.jack = jack;
+        this.isJack = jack;
     }
 }
