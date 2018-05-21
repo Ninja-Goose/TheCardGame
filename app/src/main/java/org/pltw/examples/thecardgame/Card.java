@@ -3,6 +3,7 @@ package org.pltw.examples.thecardgame;
 import android.widget.ImageView;
 
 public abstract class Card {
+    private String TAG = getClass().getName();
     protected String imageSource;
     protected String value; //lowercase
     protected String suit; //lowercase
@@ -31,7 +32,7 @@ public abstract class Card {
         } else if (value.equals("rj")||value.equals("bj")) {
             cost = 0;
         } else {
-            cost = Integer.getInteger(value);
+            cost = Integer.parseInt(value);
         }
     }
 

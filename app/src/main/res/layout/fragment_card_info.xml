@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    tools:context=".CardInfoFragment"
+    tools:layout_editor_absoluteY="81dp">
+
+
+    <ImageView
+        android:id="@+id/cardDescImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/card_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="193dp" />
+
+    <TextView
+        android:id="@+id/costDescText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/cost_text"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/valueDescText"
+        app:layout_constraintEnd_toStartOf="@+id/costText"
+        app:layout_constraintStart_toEndOf="@+id/cardDescImage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/valueDescText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/value_text"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/descText"
+        app:layout_constraintEnd_toStartOf="@+id/valueText"
+        app:layout_constraintStart_toEndOf="@+id/cardDescImage"
+        app:layout_constraintTop_toBottomOf="@+id/costDescText" />
+
+    <TextView
+        android:id="@+id/descText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/abilities_text"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/descDescText"
+        app:layout_constraintStart_toEndOf="@+id/cardDescImage"
+        app:layout_constraintTop_toBottomOf="@+id/valueDescText" />
+
+    <TextView
+        android:id="@+id/costText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/cost_text_value"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/valueText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/costDescText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/valueText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/value_text_value"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/descText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/valueDescText"
+        app:layout_constraintTop_toBottomOf="@+id/costText" />
+
+    <TextView
+        android:id="@+id/descDescText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/abilities_text_value"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardDescImage"
+        app:layout_constraintTop_toBottomOf="@+id/descText" />
+</android.support.constraint.ConstraintLayout>

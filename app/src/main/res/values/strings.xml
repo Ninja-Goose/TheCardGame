@@ -21,7 +21,7 @@
 
     <string name="menu_title_text">The Card Game</string>
     <string name="menu_image_description">Image of cards</string>
-  
+
     <string name="opponent_far_right_black_card">opponent far right black card</string>
     <string name="opponent_far_left_black_card">opponent far left black card</string>
     <string name="opponent_center_black_card">opponent center black card</string>
@@ -60,4 +60,28 @@
     <string name="two_on_one_device_text">Two people on one device</string>
     <string name="against_a_bot_text">Against a bot</string>
     <string name="internet_text">On the internet</string>
+
+
+    <string name="cost_text">Cost: </string>
+    <string name="value_text">Value: </string>
+    <string name="abilities_text">Special Abilities: </string>
+
+    <string name="cost_text_value">%1$d</string>
+    <string name="value_text_value">%1$d</string>
+    <string name="abilities_text_value">A standard card.</string>
+
+    <string name="health_text">Health: </string>
+    <string name="damage_text">Damage: </string>
+
+    <string name="red_jack_abilities">Red Jacks, when played, allow the player to draw an extra card on their turn.</string>
+    <string name="black_jack_abilities">Black Jacks, when played, give the player 5 extra energy next turn and increase the maximum energy they may have.</string>
+    <string name="red_king_abilities">Red Kings shield adjacent red cards. These shields completely absorb one attack before being destroyed.</string>
+    <string name="black_king_abilities">Black Kings attack adjacent lanes for 5 damage.</string>
+    <string name="red_queen_abilities">Red Queens can move to any open lane before any other cards attack at the end of the round.\nNote: If the intent for an opposing black Queen is to attack an open lane, a defending red Queen may annihilate with the attacking card.</string>
+    <string name="black_queen_abilities">Black Queens can move to any open lane before any other cards attack at the end of the round.\nNote: If the intent for an opposing black Queen is to attack an open lane, a defending red Queen may annihilate with the attacking card.</string>
+    <string name="red_ace_abilities">Red Aces, when played, can make one defending card, including itself, invulnerable to all attacks, even the Black Ace\'s assassination ability.</string>
+    <string name="black_ace_abilities">Black Aces, when played, can completely destroy one opposing defending card before any other cards attack. This ability does not work against cards that are made invulnerable from a red Ace.</string>
+    <string name="ten_card_abilities">Tens do not take up a space on the lane they are played.</string>
+
+
 </resources>

@@ -27,7 +27,7 @@ public class MainMenuActivity extends AppCompatActivity {
         editor.commit();
 
         FragmentManager manager = getSupportFragmentManager();
-        Fragment fragment = fragment = new MainMenuFragment();
+        Fragment fragment = new MainMenuFragment();
 
         manager.beginTransaction()
                 .add(R.id.main_menu_fragment_display, fragment).

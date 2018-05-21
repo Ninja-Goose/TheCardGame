@@ -10,7 +10,7 @@ public class BlackCard extends Card {
         } else if (value.equals("j")||value.equals("q")||value.equals("k")) {
             attack = 10;
         } else {
-            attack = Integer.getInteger(value);
+            attack = Integer.parseInt(value);
         }
 
     }

@@ -12,7 +12,7 @@ public class RedCard extends Card {
         } else if (value.equals("j")||value.equals("q")||value.equals("k")) {
             health = 10;
         } else {
-            health = Integer.getInteger(value);
+            health = Integer.parseInt(value);
         }
     }
 

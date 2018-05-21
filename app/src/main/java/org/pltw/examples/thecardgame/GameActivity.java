@@ -1,7 +1,7 @@
 package org.pltw.examples.thecardgame;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -48,6 +48,8 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
     private HorizontalScrollView userHandScrollView;
     private LinearLayout userHandLinearLayout;
 
+    private CardInfoFragment fragment;
+
     private Player user;
     private Player opponent;
 
@@ -57,6 +59,17 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        FragmentManager manager = getSupportFragmentManager();
+        fragment = new CardInfoFragment();
+        //fragment.setCard(generateNewCard());
+        // Todo: get the card from the image view
+
+        manager.beginTransaction()
+                .add(R.id.card_display_fragment, fragment)
+                .hide(fragment)
+                .commit();
+
         setContentView(R.layout.activity_game);
 
         opponentFarRightBlackCardImageView = findViewById(R.id.opponentFarRightBlackImageView);
@@ -101,6 +114,8 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         userFarLeftRedCardImageView.setVisibility(View.INVISIBLE);
 
 
+
+
         userDataTextView = findViewById(R.id.userDataTextView);
         opponentDataTextView = findViewById(R.id.opponentDataTextView);
 
@@ -125,6 +140,7 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         boolean color = random.nextBoolean();
         boolean suit = random.nextBoolean();
         int val = random.nextInt(12) + 1;
+        Log.i(TAG, "generateNewCard() val = " + val);
         String value;
         String cardSuit;
         if (val == 1) {
@@ -136,7 +152,7 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         } else if (val == 13) {
             value = "k";
         } else {
-            value = Integer.toString(val);
+            value = ""+val;
         }
 
         if (color) {
@@ -188,83 +204,22 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
     
     private void displayCard(int id) {
         ImageView imageViewClicked = findViewById(id);
-        Log.i(TAG, "Image view clicked: " + id + ", drawable: " + imageViewClicked.getDrawable().toString());
-        Intent i = new Intent();
+        //Log.i(TAG, "Image view clicked: " + id + ", drawable: " + imageViewClicked.getDrawable().toString());
+        FragmentManager manager = getSupportFragmentManager();
+        Card card = generateNewCard();
+        fragment.setCard(card);// Todo: get the card from the image view
 
-        //Todo: get the card associated with an image view id
-        //Todo: Start new fragment(?) to display enlarged card and info
+        manager.beginTransaction()
+                .replace(R.id.card_display_fragment, fragment)
+                .show(fragment)
+                .addToBackStack(null)
+                .commit();
+
         //wait for click off and stop fragment
     }
 
     public void playedCardClicked(View v) {
-
         displayCard(v.getId());
-
-        /*switch (v.getId()) {
-            case R.id.opponentFarLeftRedImageView: //opponent cards, red cards
-                //code
-                break;
-            case R.id.opponentMidLeftRedImageView:
-                //code
-                break;
-            case R.id.opponentCenterRedImageView:
-                //code
-                break;
-            case R.id.opponentMidRightRedImageView:
-                //code
-                break;
-            case R.id.opponentFarRightRedImageView:
-                //code
-                break;
-            case R.id.opponentFarLeftBlackImageView: //black cards
-                //code
-                break;
-            case R.id.opponentMidLeftBlackImageView:
-                //code
-                break;
-            case R.id.opponentCenterBlackImageView:
-                //code
-                break;
-            case R.id.opponentMidRightBlackImageView:
-                //code
-                break;
-            case R.id.opponentFarRightBlackImageView:
-                //code
-                break;
-
-
-            case R.id.userFarLeftRedImageView: //player cards, red cards
-                //code
-                break;
-            case R.id.userMidLeftRedImageView:
-                //code
-                break;
-            case R.id.userCenterRedImageView:
-                //code
-                break;
-            case R.id.userMidRightRedImageView:
-                //code
-                break;
-            case R.id.userFarRightRedImageView:
-                //code
-                break;
-            case R.id.userFarLeftBlackImageView: //black cards
-                //code
-                break;
-            case R.id.userMidLeftBlackImageView:
-                //code
-                break;
-            case R.id.user:
-                //code
-                break;
-            case R.id.opponentFarRightBlackImageView:
-                //code
-                break;
-            case R.id.opponentFarRightBlackImageView:
-                //code
-                break;
-
-        }*/
-    } // in xml, set android on click property to "playedCardClicked"
+    }
 
 }

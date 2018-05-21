@@ -89,8 +89,6 @@ public class SettingsFragment extends Fragment {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Todo: end this fragment, display main menu fragment
-                Log.i(TAG, "Settings back button pressed, starting main menu fragment");
                 FragmentManager manager = getFragmentManager();
                 MainMenuFragment menuFragment = new MainMenuFragment();
                 manager.beginTransaction()
