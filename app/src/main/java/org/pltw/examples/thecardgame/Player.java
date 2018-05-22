@@ -3,6 +3,7 @@ package org.pltw.examples.thecardgame;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
@@ -29,16 +30,12 @@ public class Player {
 
 
 
-    public Player(int health, int energy, List<Card> hand, boolean turn) {
-        this.health = health;
-        this.energy = energy;
-        this.hand = hand;
-        this.turn = turn;
-    }
-
     public Player() {
         health = 50;
         energy = 0;
+        hand = new ArrayList<>();
+        redCardsInPlay = new ArrayList<>();
+        blackCardsInPlay = new ArrayList<>();
     }
 
 

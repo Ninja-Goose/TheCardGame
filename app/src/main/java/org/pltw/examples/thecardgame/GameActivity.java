@@ -53,26 +53,29 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
 
         setContentView(R.layout.activity_game);
 
+        user = new Player();
+        opponent = new Player();
+
         opponent.setFarRightBlackCardImageView((ImageView) findViewById(R.id.opponentFarRightBlackImageView));
         opponent.setMidRightBlackCardImageView((ImageView) findViewById(R.id.opponentMidRightBlackImageView));
-        opponent.setCenterBlackCardImageView((ImageView)  findViewById(R.id.opponentCenterBlackImageView));
-        opponent.setMidLeftBlackCardImageView((ImageView)  findViewById(R.id.opponentMidLeftBlackImageView));
-        opponent.setFarLeftBlackCardImageView((ImageView)  findViewById(R.id.opponentFarLeftBlackImageView));
-        user.setFarRightBlackCardImageView((ImageView)  findViewById(R.id.userFarRightBlackImageView));
-        user.setMidRightBlackCardImageView((ImageView)  findViewById(R.id.userMidRightBlackImageView));
-        user.setCenterBlackCardImageView((ImageView)  findViewById(R.id.userCenterBlackImageView));
-        user.setMidLeftBlackCardImageView((ImageView)  findViewById(R.id.userMidLeftBlackImageView));
-        user.setFarLeftBlackCardImageView((ImageView)  findViewById(R.id.userFarLeftBlackImageView));
-        opponent.setFarRightRedCardImageView((ImageView)  findViewById(R.id.opponentFarRightRedImageView));
-        opponent.setMidRightRedCardImageView((ImageView)  findViewById(R.id.opponentMidRightRedImageView));
-        opponent.setCenterRedCardImageView((ImageView)  findViewById(R.id.opponentCenterRedImageView));
-        opponent.setMidLeftRedCardImageView((ImageView)  findViewById(R.id.opponentMidLeftRedImageView));
-        opponent.setFarLeftRedCardImageView((ImageView)  findViewById(R.id.opponentFarLeftRedImageView));
-        user.setFarRightRedCardImageView((ImageView)  findViewById(R.id.userFarRightRedImageView));
-        user.setMidRightRedCardImageView((ImageView)  findViewById(R.id.userMidRightRedImageView));
-        user.setCenterRedCardImageView((ImageView)  findViewById(R.id.userCenterRedImageView));
-        user.setMidLeftRedCardImageView((ImageView)  findViewById(R.id.userMidLeftRedImageView));
-        user.setFarLeftRedCardImageView((ImageView)  findViewById(R.id.userFarLeftRedImageView));
+        opponent.setCenterBlackCardImageView((ImageView) findViewById(R.id.opponentCenterBlackImageView));
+        opponent.setMidLeftBlackCardImageView((ImageView) findViewById(R.id.opponentMidLeftBlackImageView));
+        opponent.setFarLeftBlackCardImageView((ImageView) findViewById(R.id.opponentFarLeftBlackImageView));
+        user.setFarRightBlackCardImageView((ImageView) findViewById(R.id.userFarRightBlackImageView));
+        user.setMidRightBlackCardImageView((ImageView) findViewById(R.id.userMidRightBlackImageView));
+        user.setCenterBlackCardImageView((ImageView) findViewById(R.id.userCenterBlackImageView));
+        user.setMidLeftBlackCardImageView((ImageView) findViewById(R.id.userMidLeftBlackImageView));
+        user.setFarLeftBlackCardImageView((ImageView) findViewById(R.id.userFarLeftBlackImageView));
+        opponent.setFarRightRedCardImageView((ImageView) findViewById(R.id.opponentFarRightRedImageView));
+        opponent.setMidRightRedCardImageView((ImageView) findViewById(R.id.opponentMidRightRedImageView));
+        opponent.setCenterRedCardImageView((ImageView) findViewById(R.id.opponentCenterRedImageView));
+        opponent.setMidLeftRedCardImageView((ImageView) findViewById(R.id.opponentMidLeftRedImageView));
+        opponent.setFarLeftRedCardImageView((ImageView) findViewById(R.id.opponentFarLeftRedImageView));
+        user.setFarRightRedCardImageView((ImageView) findViewById(R.id.userFarRightRedImageView));
+        user.setMidRightRedCardImageView((ImageView) findViewById(R.id.userMidRightRedImageView));
+        user.setCenterRedCardImageView((ImageView) findViewById(R.id.userCenterRedImageView));
+        user.setMidLeftRedCardImageView((ImageView) findViewById(R.id.userMidLeftRedImageView));
+        user.setFarLeftRedCardImageView((ImageView) findViewById(R.id.userFarLeftRedImageView));
         opponent.getFarRightBlackCardImageView().setVisibility(View.INVISIBLE);
         opponent.getMidRightBlackCardImageView().setVisibility(View.INVISIBLE);
         opponent.getCenterBlackCardImageView().setVisibility(View.INVISIBLE);
@@ -101,8 +104,6 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         userHandScrollView = findViewById(R.id.userHandScrollView);
         userHandLinearLayout = findViewById(R.id.userHandLinearLayout);
 
-        user = new Player();
-        opponent = new Player();
         endTurnButton = findViewById(R.id.end_turn_button);
         user.setLastTurnJackValue(0);
 
@@ -112,6 +113,8 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         opponent.setHealth(50);
         user.setDataText(getString(R.string.user_data,user.getEnergy(),user.getHealth()));
         opponent.setDataText(getString(R.string.opponent_data,opponent.getEnergy(),opponent.getHealth()));
+        user.getDataTextView().setText(user.getDataText());
+        opponent.getDataTextView().setText(opponent.getDataText());
 
 
         //Start the Game
@@ -269,7 +272,7 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
                     //Todo: implement face card and 10 specials
 
                     if (blackCard.isJack) {
-
+                        opponent.setLastTurnJackValue(opponent.getLastTurnJackValue()+10);
                     }
 
 
@@ -293,7 +296,14 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
                     } else {
                         redCard.setShielded(false);
                     }
+
                     //Todo: implement face card and 10 specials
+
+                    if (blackCard.isJack) {
+                        user.setLastTurnJackValue(user.getLastTurnJackValue()+10);
+                    }
+
+
                     if (redCard.getHealth()<=0) {
                         //Todo: disconnect red card from ImageView
                         opponent.setHealth(user.getHealth()+redCard.getHealth());

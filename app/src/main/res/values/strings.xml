@@ -45,8 +45,8 @@
     <string name="user_information">user information</string>
     <string name="opponent_information">opponent information</string>
     <string name="card_deck">card deck</string>
-    <string name="user_data">Energy: %1$i\nHealth: %2$i</string>
-    <string name="opponent_data">Energy: %1$i\nHealth: %2$i</string>
+    <string name="user_data">Energy: %1$d\nHealth: %2$d</string>
+    <string name="opponent_data">Energy: %1$d\nHealth: %2$d</string>
 
     <string name="play_text">Play!</string>
     <string name="settings_text">Settings</string>
