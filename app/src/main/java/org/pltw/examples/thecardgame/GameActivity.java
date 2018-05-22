@@ -208,12 +208,12 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
             ImageView imageView = new ImageView(userHandLinearLayout.getContext());
             imageView.setImageResource(getResources().getIdentifier(card.getImageSource(), "drawable", getPackageName()));
             imageView.setVisibility(View.VISIBLE);
-            /*imageView.setOnClickListener(new View.OnClickListener() {
+            imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    handCardClick();
+                    handCardClicked(view);
                 }
-            });*/
+            });
             card.setImageDisplay(imageView);
         }
         return card;
@@ -343,7 +343,6 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
     
     private void displayCard(int id) {
         ImageView imageViewClicked = findViewById(id);
-        //Log.i(TAG, "Image view clicked: " + id + ", drawable: " + imageViewClicked.getDrawable().toString());
         FragmentManager manager = getSupportFragmentManager();
         Card card = generateNewCard();
         fragment.setCard(card);// Todo: get the card from the image view
@@ -358,6 +357,10 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
     }
 
     public void playedCardClicked(View v) {
+        displayCard(v.getId());
+    }
+
+    public void handCardClicked(View v) {
         displayCard(v.getId());
     }
 

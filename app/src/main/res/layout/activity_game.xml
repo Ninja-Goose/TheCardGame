@@ -387,4 +387,14 @@
         app:layout_constraintStart_toStartOf="@+id/guideline80percent"
         app:layout_constraintTop_toBottomOf="@+id/userDataTextView" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/userFarLeftBlackImageView"
+        app:layout_constraintEnd_toStartOf="@+id/guideline20percent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/opponentFarLeftBlackImageView"
+        app:srcCompat="@drawable/card_back" />
+
 </android.support.constraint.ConstraintLayout>
