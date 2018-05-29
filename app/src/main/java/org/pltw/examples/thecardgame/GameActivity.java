@@ -135,6 +135,7 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
                 switch(gameType) {
                     case ("two on one"):
                         if (isSecondTurn) {
+                            checkForFaceCards();
                             attack();
                         } else {
                             swapPlayers();
@@ -223,7 +224,7 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         if (isUser) {
             int numberOfJacks = 0;
             for (Card card : user.getRedCardsInPlay()) {
-                if (card.isJack()) {
+                if (card.getValue().equals("j")) {
                     numberOfJacks++;
                 }
             }
@@ -235,7 +236,7 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         } else { //only applicable with bot
             int numberOfJacks = 0;
             for (Card card : opponent.getRedCardsInPlay()) {
-                if (card.isJack()) {
+                if (card.getValue().equals("j")) {
                     numberOfJacks++;
                 }
             }
@@ -257,22 +258,95 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
     }
 
 
+    private void checkForFaceCards() {
+        for (BlackCard opponentBlackCard : opponent.getBlackCardsInPlay()) { //checks whether two cards are in the same lane
+            switch(opponentBlackCard.getValue()) {
+                case ("j"):
+                    user.setLastTurnJackValue(user.getLastTurnJackValue() + 10);
+                    break;
+                case ("q"):
+                    //Todo: implement ability to move queen between lanes
+                    break;
+                case ("k"):
+                    //Todo: implement ability to add 5 damage to adjacent lanes
+                    break;
+                case ("a"):
+                    //Todo: implement ability to destroy a single card
+                    break;
+
+            }
+
+        }
+        for (RedCard opponentRedCard : opponent.getRedCardsInPlay()) {
+            switch(opponentRedCard.getValue()) {
+                case ("q"):
+                    //Todo: implement ability to move queen between lanes
+                    break;
+
+
+                /*case ("k"):
+                    //Todo: implement ability to add a shield to adjacent cards
+                    break;
+                case ("a"):
+                    //Todo: implement ability to make a single card invincible
+                    break;
+
+                    //Todo: implement this when you play the cards
+                */
+            }
+        }
+        for (BlackCard userBlackCard : user.getBlackCardsInPlay()) { //checks whether two cards are in the same lane
+            switch(userBlackCard.getValue()) {
+                case ("j"):
+                    user.setLastTurnJackValue(user.getLastTurnJackValue() + 10);
+                    break;
+                case ("q"):
+                    //Todo: implement ability to move queen between lanes
+                    break;
+                case ("k"):
+                    //Todo: implement ability to add 5 damage to adjacent lanes
+                    break;
+                case ("a"):
+                    //Todo: implement ability to destroy a single card
+                    break;
+
+            }
+        }
+        for (RedCard userRedCard : user.getRedCardsInPlay()) {
+            switch(userRedCard.getValue()) {
+                case ("q"):
+                    //Todo: implement ability to move queen between lanes
+                    break;
+
+
+                /*case ("k"):
+                    //Todo: implement ability to add a shield to adjacent cards
+                    break;
+                case ("a"):
+                    //Todo: implement ability to make a single card invincible
+                    break;
+
+                    //Todo: implement this when you play the cards
+                */
+            }
+        }
+
+    }
+
+
     private void attack() {
         for (BlackCard blackCard : opponent.getBlackCardsInPlay()) { //checks whether two cards are in the same lane
             for (RedCard redCard : user.getRedCardsInPlay()) {
                 if (redCard.getPosition().equals(blackCard.getPosition())) {
+
+                    //Todo: implement face card and 10 specials
+
                     if (!redCard.isShielded()) {
                         if (!redCard.isInvincible()) {
                             redCard.setHealth(redCard.getHealth() - blackCard.getAttack());
                         }
                     } else {
                         redCard.setShielded(false);
-                    }
-
-                    //Todo: implement face card and 10 specials
-
-                    if (blackCard.isJack) {
-                        opponent.setLastTurnJackValue(opponent.getLastTurnJackValue()+10);
                     }
 
 
@@ -289,6 +363,9 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         for (BlackCard blackCard : user.getBlackCardsInPlay()) { //checks whether two cards are in the same lane
             for (RedCard redCard : opponent.getRedCardsInPlay()) {
                 if (redCard.getPosition().equals(blackCard.getPosition())) {
+
+                    //Todo: implement face card and 10 specials
+
                     if (!redCard.isShielded()) {
                         if (!redCard.isInvincible()) {
                             redCard.setHealth(redCard.getHealth() - blackCard.getAttack());
@@ -297,11 +374,6 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
                         redCard.setShielded(false);
                     }
 
-                    //Todo: implement face card and 10 specials
-
-                    if (blackCard.isJack) {
-                        user.setLastTurnJackValue(user.getLastTurnJackValue()+10);
-                    }
 
 
                     if (redCard.getHealth()<=0) {
