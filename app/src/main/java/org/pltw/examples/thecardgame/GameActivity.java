@@ -3,6 +3,7 @@ package org.pltw.examples.thecardgame;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
@@ -116,6 +117,10 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         user.getDataTextView().setText(user.getDataText());
         opponent.getDataTextView().setText(opponent.getDataText());
 
+        BlackCard testcard = new BlackCard("10", "c", null);
+        testcard.setImageDisplay(user.getCenterBlackCardImageView());
+        user.getBlackCardsInPlay().add(testcard);
+
 
         //Start the Game
         for (int i = 0; i < 5; i++) {
@@ -206,6 +211,7 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
         Card card = generateNewCard();
         if (isUser) {
             ImageView imageView = new ImageView(userHandLinearLayout.getContext());
+            userHandLinearLayout.addView(imageView);
             imageView.setImageResource(getResources().getIdentifier(card.getImageSource(), "drawable", getPackageName()));
             imageView.setVisibility(View.VISIBLE);
             imageView.setOnClickListener(new View.OnClickListener() {
@@ -341,11 +347,10 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
 
 
     
-    private void displayCard(int id) {
+    private void displayCard(int id, boolean hand) {
         ImageView imageViewClicked = findViewById(id);
         FragmentManager manager = getSupportFragmentManager();
-        Card card = generateNewCard();
-        fragment.setCard(card);// Todo: get the card from the image view
+        fragment.setCard(findCardFromImageView(imageViewClicked, hand));// Todo: get the card from the image view
 
         manager.beginTransaction()
                 .replace(R.id.card_display_fragment, fragment)
@@ -357,11 +362,44 @@ public class GameActivity extends AppCompatActivity { //Main gameplay logic
     }
 
     public void playedCardClicked(View v) {
-        displayCard(v.getId());
+        Log.i(TAG, "Image view clicked = " + userHandLinearLayout.findViewById(v.getId()) + v.getId());
+        displayCard(v.getId(), false);
     }
 
     public void handCardClicked(View v) {
-        displayCard(v.getId());
+        Log.i(TAG, "Image view clicked = " + userHandLinearLayout.findViewById(v.getId()) + v.getId());
+        displayCard(v.getId(), true);
+    }
+
+    public Card findCardFromImageView(ImageView imageView, boolean hand) {
+        if (hand){
+            for (Card card : user.getHand()) {
+                if (card.getImageDisplay() == imageView){
+                    return card;
+                }
+            }
+        }
+        for (Card card : user.getBlackCardsInPlay()) {
+            if (card.getImageDisplay() == imageView) {
+                return card;
+            }
+        }
+        for (Card card : user.getRedCardsInPlay()) {
+            if (card.getImageDisplay() == imageView) {
+                return card;
+            }
+        }
+        for (Card card : opponent.getBlackCardsInPlay()) {
+            if (card.getImageDisplay() == imageView) {
+                return card;
+            }
+        }
+        for (Card card : opponent.getRedCardsInPlay()) {
+            if (card.getImageDisplay() == imageView) {
+                return card;
+            }
+        }
+        return generateNewCard();
     }
 
 }
