@@ -10,7 +10,6 @@ public abstract class Card {
     protected String position; //hand, farLeft, midLeft, center, midRight, farRight
     protected int cost;
     protected ImageView imageDisplay;
-    protected boolean isJack;
 
 
     public Card() {
@@ -25,9 +24,6 @@ public abstract class Card {
         this.suit = suit;
         this.position = position;
         if (value.equals("j")||value.equals("q")||value.equals("k")||value.equals("a")) {
-            if (value.equals("j")) {
-                isJack = true;
-            }
             cost = 15;
         } else if (value.equals("rj")||value.equals("bj")) {
             cost = 0;
@@ -83,13 +79,5 @@ public abstract class Card {
 
     public void setImageDisplay(ImageView imageDisplay) {
         this.imageDisplay = imageDisplay;
-    }
-
-    public boolean isJack() {
-        return isJack;
-    }
-
-    public void setJack(boolean jack) {
-        this.isJack = jack;
     }
 }
